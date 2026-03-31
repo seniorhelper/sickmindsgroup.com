@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sick Minds Group | Christian Mixed-Genre Band | Seeking Musicians</title>
+<meta name="description" content="Sick Minds Group is a new non-denominational Christian mixed-genre band forming in the Denver area. We're seeking talented musicians, vocalists, and audio professionals to join our mission.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --black: #0a0a0f;
+    --deep: #0d0d18;
+    --stone: #1a1a2e;
+    --gold: #c9a84c;
+    --gold-light: #f0d080;
+    --gold-dim: #7a5f28;
+    --crimson: #8b1a1a;
+    --crimson-light: #c0392b;
+    --white: #f5f0e8;
+    --cream: #e8dfc8;
+    --mist: rgba(245,240,232,0.08);
+    --ray: rgba(201,168,76,0.12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--black);
+    color: var(--cream);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* ── LIGHT RAYS BACKGROUND ── */
+  .rays-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .rays-bg::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160%;
+    height: 90%;
+    background: conic-gradient(
+      from 265deg at 50% 0%,
+      transparent 0deg,
+      rgba(201,168,76,0.04) 5deg,
+      transparent 10deg,
+      rgba(201,168,76,0.03) 15deg,
+      transparent 22deg,
+      rgba(201,168,76,0.05) 28deg,
+      transparent 35deg,
+      rgba(201,168,76,0.02) 42deg,
+      transparent 50deg,
+      rgba(201,168,76,0.04) 55deg,
+      transparent 62deg,
+      rgba(240,208,128,0.06) 68deg,
+      transparent 80deg,
+      rgba(201,168,76,0.03) 88deg,
+      transparent 95deg
+    );
+    animation: raysPulse 8s ease-in-out infinite alternate;
+  }
+  .rays-bg::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 40%;
+    background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%);
+    animation: glowPulse 6s ease-in-out infinite alternate;
+  }
+  @keyframes raysPulse {
+    0% { opacity: 0.6; transform: translateX(-50%) scaleX(0.95); }
+    100% { opacity: 1; transform: translateX(-50%) scaleX(1.05); }
+  }
+  @keyframes glowPulse {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
+
+  /* ── HEADER / HERO ── */
+  .hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px 80px;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,168,76,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 20% 100%, rgba(139,26,26,0.2) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 60% at 80% 100%, rgba(139,26,26,0.15) 0%, transparent 50%),
+      linear-gradient(180deg, var(--deep) 0%, var(--black) 60%, #100808 100%);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.15) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 15%, rgba(255,255,255,0.1) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 55%, rgba(255,255,255,0.08) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 70%, rgba(255,255,255,0.12) 0%, transparent 100%),
+      radial-gradient(1px 1px at 10% 80%, rgba(255,255,255,0.08) 0%, transparent 100%),
+      radial-gradient(2px 2px at 60% 25%, rgba(201,168,76,0.3) 0%, transparent 100%),
+      radial-gradient(2px 2px at 35% 60%, rgba(201,168,76,0.2) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .crown-ornament {
+    font-size: 2.2rem;
+    color: var(--gold);
+    letter-spacing: 0.3em;
+    margin-bottom: 18px;
+    opacity: 0.9;
+    animation: fadeDown 1s ease both;
+    text-shadow: 0 0 20px rgba(201,168,76,0.5);
+  }
+
+  .band-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 900;
+    color: var(--gold-light);
+    text-shadow:
+      0 0 40px rgba(201,168,76,0.4),
+      0 0 80px rgba(201,168,76,0.2),
+      2px 4px 8px rgba(0,0,0,0.8);
+    letter-spacing: 0.06em;
+    line-height: 1.1;
+    animation: fadeDown 1s 0.2s ease both;
+    margin-bottom: 12px;
+  }
+
+  .band-tagline {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.8rem, 2vw, 1.05rem);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 32px;
+    animation: fadeDown 1s 0.4s ease both;
+  }
+
+  .divider-cross {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 36px;
+    animation: fadeDown 1s 0.5s ease both;
+  }
+  .divider-cross span { color: var(--gold); font-size: 1.4rem; }
+  .divider-line {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+  }
+
+  .trinity-pills {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 44px;
+    animation: fadeDown 1s 0.6s ease both;
+  }
+  .trinity-pill {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cream);
+    border: 1px solid rgba(201,168,76,0.4);
+    padding: 8px 22px;
+    border-radius: 30px;
+    background: rgba(201,168,76,0.06);
+    backdrop-filter: blur(4px);
+  }
+
+  .scroll-cta {
+    animation: fadeDown 1s 0.8s ease both;
+  }
+  .scroll-cta a {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    padding: 14px 36px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 4px 24px rgba(201,168,76,0.3), 0 2px 8px rgba(0,0,0,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .scroll-cta a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(201,168,76,0.45), 0 4px 12px rgba(0,0,0,0.5);
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTION BASE ── */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 80px 24px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  h2 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700;
+    color: var(--gold-light);
+    text-shadow: 0 0 30px rgba(201,168,76,0.25);
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    color: var(--gold);
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  p {
+    color: var(--cream);
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+    font-weight: 300;
+  }
+
+  p strong {
+    color: var(--gold-light);
+    font-weight: 600;
+  }
+
+  /* ── FULL-WIDTH SECTION WRAPPER ── */
+  .section-full {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+  .section-full > section { padding-left: 24px; padding-right: 24px; }
+
+  /* ── LIGHT BREAK DIVIDER ── */
+  .light-break {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, var(--gold-dim) 20%, var(--gold-light) 50%, var(--gold-dim) 80%, transparent 100%);
+    margin: 0;
+    overflow: visible;
+  }
+  .light-break::before {
+    content: '✦';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--gold-light);
+    font-size: 1.2rem;
+    background: var(--black);
+    padding: 0 16px;
+    text-shadow: 0 0 12px rgba(201,168,76,0.6);
+  }
+
+  /* ── GLOW SECTION ── */
+  .glow-section {
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 70%),
+      linear-gradient(180deg, rgba(26,26,46,0.6) 0%, rgba(10,10,15,0.95) 100%);
+    border-top: 1px solid rgba(201,168,76,0.15);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  /* ── CRIMSON SECTION ── */
+  .crimson-section {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(139,26,26,0.25) 0%, transparent 70%),
+      linear-gradient(180deg, rgba(13,13,24,0.98) 0%, rgba(16,8,8,0.98) 100%);
+    border-top: 1px solid rgba(139,26,26,0.3);
+    border-bottom: 1px solid rgba(139,26,26,0.3);
+  }
+
+  /* ── FAITH PILLARS ── */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 36px;
+  }
+  .pillar {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 4px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .pillar:hover {
+    border-color: rgba(201,168,76,0.5);
+    background: rgba(201,168,76,0.05);
+  }
+  .pillar-icon {
+    font-size: 2.4rem;
+    display: block;
+    margin-bottom: 14px;
+  }
+  .pillar h3 { font-size: 1.05rem; margin-bottom: 10px; }
+  .pillar p { font-size: 0.92rem; color: rgba(232,223,200,0.8); margin: 0; }
+
+  /* ── POSITIONS GRID ── */
+  .positions-intro {
+    margin-bottom: 32px;
+  }
+
+  /* ── APPLICATION FORM ── */
+  .form-wrapper {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 6px;
+    padding: 44px 40px;
+    margin-top: 8px;
+    backdrop-filter: blur(4px);
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+  .form-full { grid-column: 1 / -1; }
+
+  label {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 7px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="url"],
+  textarea,
+  select {
+    width: 100%;
+    background: rgba(10,10,15,0.7);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 3px;
+    color: var(--cream);
+    font-family: 'Crimson Pro', serif;
+    font-size: 1rem;
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    -webkit-appearance: none;
+  }
+  input::placeholder, textarea::placeholder { color: rgba(232,223,200,0.35); }
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+  }
+
+  select option { background: #1a1a2e; color: var(--cream); }
+
+  textarea { resize: vertical; min-height: 110px; }
+
+  /* Checkbox grid */
+  .checkbox-label {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .cb-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+  .cb-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    background: rgba(10,10,15,0.7);
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 2px;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+  }
+  .cb-item input[type="checkbox"]:checked {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+  .cb-item input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--black);
+    font-size: 13px;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .cb-item span {
+    font-family: 'Crimson Pro', serif;
+    font-size: 0.97rem;
+    color: var(--cream);
+  }
+
+  .form-note {
+    font-size: 0.85rem;
+    color: rgba(232,223,200,0.5);
+    margin-top: 4px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    margin-top: 8px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    border: none;
+    border-radius: 3px;
+    color: var(--black);
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(201,168,76,0.45);
+  }
+
+  /* ── SCRIPTURE PULL QUOTE ── */
+  .scripture {
+    text-align: center;
+    padding: 60px 24px;
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .scripture blockquote {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: clamp(1.25rem, 3vw, 1.7rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .scripture cite {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 1;
+    background: #050508;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    text-align: center;
+    padding: 40px 24px;
+  }
+  .footer-brand {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.2rem;
+    color: var(--gold-dim);
+    margin-bottom: 10px;
+    letter-spacing: 0.1em;
+  }
+  footer p {
+    font-size: 0.85rem;
+    color: rgba(232,223,200,0.35);
+    margin: 0;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .form-wrapper { padding: 28px 20px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-full { grid-column: 1; }
+    .checkbox-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Fixed light ray background -->
+<div class="rays-bg"></div>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <div class="crown-ornament">✦ ✝ ✦</div>
+  <h1 class="band-name">Sick Minds<br>Group</h1>
+  <p class="band-tagline">Non-Denominational Christian · Mixed Genre · Denver Area</p>
+  <div class="divider-cross">
+    <div class="divider-line"></div>
+    <span>✝</span>
+    <div class="divider-line"></div>
+  </div>
+  <div class="trinity-pills">
+    <span class="trinity-pill">Faith</span>
+    <span class="trinity-pill">Hope</span>
+    <span class="trinity-pill">Holy Trinity</span>
+    <span class="trinity-pill">New Formation</span>
+  </div>
+  <div class="scroll-cta">
+    <a href="#apply">Apply to Join the Band</a>
+  </div>
+</header>
+
+<!-- ══ LIGHT BREAK ══ -->
+<div class="light-break"></div>
+
+<!-- ══ ABOUT / COPY ══ -->
+<div class="section-full glow-section">
+<section>
+  <span class="section-label">Our Mission</span>
+  <h2>Something New Is Rising</h2>
+
+  <p>There's a sound stirring — raw, honest, unafraid. <strong>Sick Minds Group</strong> is a new non-denominational Christian band forming in the Denver area, and we're looking for the musicians, vocalists, and creative minds God has been preparing for exactly this moment.</p>
+
+  <p>We are not a traditional worship band. We're not confined to one genre, one style, or one congregation. Our music draws from rock, gospel, jazz, hip-hop, folk, and everything in between — because the Spirit moves through all of it. What binds us together isn't a sound. <strong>It's a foundation.</strong></p>
+
+  <p>We believe the light shines brightest in the darkest places. That faith isn't passive — it's a force. That art, music, and community are acts of worship when they're rooted in truth. We're building something from the ground up: a band, a creative family, and a place where broken people make beautiful noise together.</p>
+
+  <p><strong>If you've been sitting on your gift wondering when the right door would open — this might be it.</strong></p>
+
+  <p>We're currently seeking musicians of all backgrounds and skill levels who share a heart for Christ and a passion for authentic, genre-bending music. You don't have to have it all figured out. You just have to show up ready to create something real.</p>
+
+  <p>We are also actively searching for a <strong>rehearsal and recording space</strong> in the Denver metro area. If you have a space, know of one, or want to partner with us in building this vision out — we want to hear from you too.</p>
+
+  <p>Whether you play piano in a jazz club or shred guitar in a garage — whether you've been in ministry your whole life or you're just finding your faith — there is a seat at this table for you. <strong>Come as you are. Bring what you have. Let's build something that matters.</strong></p>
+
+</section>
+</div>
+
+<!-- ══ LIGHT BREAK ══ -->
+<div class="light-break"></div>
+
+<!-- ══ PILLARS ══ -->
+<section>
+  <span class="section-label">What We Stand On</span>
+  <h2>Built on the Holy Trinity</h2>
+  <div class="pillars">
+    <div class="pillar">
+      <span class="pillar-icon">🕊️</span>
+      <h3>Faith</h3>
+      <p>We move forward even when the path is unclear. Every note we play is an act of trust in something greater than ourselves.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">☀️</span>
+      <h3>Hope</h3>
+      <p>Music has always been the language of hope. We create to lift people — out of darkness, out of numbness, into something alive.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">✝️</span>
+      <h3>Holy Trinity</h3>
+      <p>Father, Son, and Holy Spirit — the center of everything we do. Our foundation is Christ. Our compass is His Word.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LIGHT BREAK ══ -->
+<div class="light-break"></div>
+
+<!-- ══ SCRIPTURE ══ -->
+<div class="section-full crimson-section">
+<div class="scripture">
+  <blockquote>"For we are God's handiwork, created in Christ Jesus to do good works, which God prepared in advance for us to do."</blockquote>
+  <cite>— Ephesians 2:10</cite>
+</div>
+</div>
+
+<!-- ══ LIGHT BREAK ══ -->
+<div class="light-break"></div>
+
+<!-- ══ APPLICATION FORM ══ -->
+<section id="apply">
+  <span class="section-label">Join the Band</span>
+  <h2>Musician Application</h2>
+  <p class="positions-intro">We're looking for talented, Spirit-led people across all instruments and roles. Select everything that applies — we want to know the full picture of what you bring.</p>
+
+  <div class="form-wrapper">
+    <form
+      action="https://formsubmit.co/info@sickmindsgroup.com"
+      method="POST"
+    >
+      <!-- FormSubmit config -->
+      <input type="hidden" name="_subject" value="New Band Application — Sick Minds Group">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="source_site" value="sickmindsgroup.com">
+      <input type="text" name="_honey" style="display:none">
+
+      <div class="form-grid">
+        <div>
+          <label for="user_name">Full Name *</label>
+          <input type="text" id="user_name" name="user_name" placeholder="Your full name" required>
+        </div>
+        <div>
+          <label for="user_phone">Phone Number *</label>
+          <input type="tel" id="user_phone" name="user_phone" placeholder="(720) 000-0000" required>
+        </div>
+        <div>
+          <label for="user_email">Email Address *</label>
+          <input type="email" id="user_email" name="user_email" placeholder="you@email.com" required>
+        </div>
+        <div>
+          <label for="user_city">City / Area *</label>
+          <input type="text" id="user_city" name="user_city" placeholder="Denver, Arvada, etc." required>
+        </div>
+      </div>
+
+      <!-- POSITIONS CHECKBOXES -->
+      <div class="form-full">
+        <span class="checkbox-label">What Do You Play or Do? (Check all that apply) *</span>
+        <div class="checkbox-grid">
+          <label class="cb-item"><input type="checkbox" name="roles" value="Lead Vocals"><span>Lead Vocals</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Background / Harmony Vocals"><span>Background / Harmony Vocals</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Electric Guitar"><span>Electric Guitar</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Acoustic Guitar"><span>Acoustic Guitar</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Bass Guitar"><span>Bass Guitar</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Rhythm Guitar"><span>Rhythm Guitar</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Piano"><span>Piano</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Keyboard / Synth"><span>Keyboard / Synth</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Drums / Percussion"><span>Drums / Percussion</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Drum Programming / Beatmaker"><span>Drum Programming / Beatmaker</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Saxophone"><span>Saxophone</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Trumpet"><span>Trumpet</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Trombone"><span>Trombone</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Violin / Strings"><span>Violin / Strings</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Cello"><span>Cello</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Flute"><span>Flute</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="DJ / Turntablist"><span>DJ / Turntablist</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Audio Engineer / Sound Tech"><span>Audio Engineer / Sound Tech</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Producer / Sound Designer"><span>Producer / Sound Designer</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Songwriter / Lyricist"><span>Songwriter / Lyricist</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Stage Manager / Production"><span>Stage / Production Tech</span></label>
+          <label class="cb-item"><input type="checkbox" name="roles" value="Worship Leader"><span>Worship Leader</span></label>
+        </div>
+      </div>
+
+      <!-- OTHER ROLE -->
+      <div class="form-full" style="margin-bottom: 18px;">
+        <label for="other_role">Other Role / Instrument</label>
+        <input type="text" id="other_role" name="other_role" placeholder="Describe anything not listed above">
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="form-grid">
+        <div>
+          <label for="experience_level">Experience Level *</label>
+          <select id="experience_level" name="experience_level" required>
+            <option value="" disabled selected>Select level</option>
+            <option value="Beginner — Still Learning">Beginner — Still Learning</option>
+            <option value="Intermediate — Solid Foundation">Intermediate — Solid Foundation</option>
+            <option value="Advanced — Performance Ready">Advanced — Performance Ready</option>
+            <option value="Professional / Studio Experienced">Professional / Studio Experienced</option>
+          </select>
+        </div>
+        <div>
+          <label for="availability">General Availability *</label>
+          <select id="availability" name="availability" required>
+            <option value="" disabled selected>Select availability</option>
+            <option value="Weekday Evenings">Weekday Evenings</option>
+            <option value="Weekends">Weekends</option>
+            <option value="Weekends + Some Evenings">Weekends + Some Evenings</option>
+            <option value="Flexible">Flexible / Open</option>
+          </select>
+        </div>
+
+        <!-- SPACE OFFERING -->
+        <div class="form-full">
+          <label for="space_offer">Do You Have or Know of a Rehearsal / Recording Space?</label>
+          <select id="space_offer" name="space_offer">
+            <option value="" disabled selected>Select one</option>
+            <option value="Yes — I have a space to offer">Yes — I have a space to offer</option>
+            <option value="I know of a space">I know of a space</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <!-- LINKS -->
+        <div class="form-full">
+          <label for="links">Links (Social, SoundCloud, YouTube, etc.)</label>
+          <input type="url" id="links" name="links" placeholder="https://...">
+          <p class="form-note">Share anything that shows your work — totally optional.</p>
+        </div>
+
+        <!-- MESSAGE -->
+        <div class="form-full">
+          <label for="user_message">Tell Us About Yourself & Your Faith Journey</label>
+          <textarea id="user_message" name="user_message" placeholder="Share your story, your heart for music, and why you feel called to be part of this..."></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">✝ Submit My Application</button>
+    </form>
+  </div>
+</section>
+
+<!-- ══ LIGHT BREAK ══ -->
+<div class="light-break"></div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-brand">Sick Minds Group</div>
+  <p>Non-Denominational Christian · Mixed Genre · Denver, Colorado</p>
+  <p style="margin-top: 8px;">© 2026 Sick Minds Group. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
